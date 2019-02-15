@@ -1,0 +1,576 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>docker常用命令 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="k8s概述.html">
+            
+                <a href="k8s概述.html">
+            
+                    
+                    k8s概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="k8s核心对象概念.html">
+            
+                <a href="k8s核心对象概念.html">
+            
+                    
+                    k8s核心对象概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="K8S系统架构与组件功能.html">
+            
+                <a href="K8S系统架构与组件功能.html">
+            
+                    
+                    K8S系统架构与组件功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    K8S集群常用命令
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.5.1" data-path="Docker常用命令.html">
+            
+                <a href="Docker常用命令.html">
+            
+                    
+                    docker常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" >
+            
+                <span>
+            
+                    
+                    K8S常用命令
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >docker常用命令</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>[TOC]</p>
+<h2 id="docker">Docker</h2>
+<h2 id="1&#x6838;&#x5FC3;&#x6982;&#x5FF5;">1.&#x6838;&#x5FC3;&#x6982;&#x5FF5;</h2>
+<p><strong>docker&#x4E3B;&#x673A;&#xFF08;Host&#xFF09;</strong>&#xFF1A;&#x5B89;&#x88C5;&#x4E86;doocker&#x7A0B;&#x5E8F;&#x7684;&#x673A;&#x5668;&#xFF08;docker&#x76F4;&#x63A5;&#x5B89;&#x88C5;&#x5728;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E4B;&#x4E0A;&#xFF09;</p>
+<p><strong>docker&#x5BA2;&#x6237;&#x7AEF;&#xFF08;Client&#xFF09;</strong>&#xFF1A;&#x8FDE;&#x63A5;docker&#x4E3B;&#x673A;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;</p>
+<p><strong>docker&#x4ED3;&#x5E93;&#xFF08;Registry&#xFF09;</strong>&#xFF1A;&#x7528;&#x6765;&#x4FDD;&#x5B58;&#x5404;&#x79CD;&#x6253;&#x5305;&#x597D;&#x7684;&#x8F6F;&#x4EF6;&#x955C;&#x50CF;</p>
+<p><strong>docker&#x955C;&#x50CF;&#xFF08;Image&#xFF09;</strong>&#xFF1A;&#x8F6F;&#x4EF6;&#x6253;&#x5305;&#x597D;&#x7684;&#x955C;&#x50CF;&#xFF0C;&#x653E;&#x5728;docker&#x4ED3;&#x5E93;&#x4E2D;</p>
+<p><strong>docker&#x5BB9;&#x5668;&#xFF08;Container&#xFF09;</strong>&#xFF1A;&#x955C;&#x50CF;&#x542F;&#x52A8;&#x540E;&#x7684;&#x5B9E;&#x4F8B;&#x79F0;&#x4E3A;&#x4E00;&#x4E2A;&#x5BB9;&#x5668;&#xFF0C;&#x5BB9;&#x5668;&#x662F;&#x72EC;&#x7ACB;&#x8FD0;&#x884C;&#x7684;&#x4E00;&#x4E2A;&#x6216;&#x4E00;&#x7EC4;&#x5E94;&#x7528;</p>
+<h2 id="2&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#xFF1A;">2.&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#xFF1A;</h2>
+<p>&#x66F4;&#x65B0;&#x5185;&#x6838;&#x548C;yum&#x5E93;</p>
+<blockquote>
+<p>yum update -y    (y&#x4EE3;&#x8868;yes&#xFF0C;&#x5373;&#x662F;&#x4E00;&#x5207;&#x63D0;&#x793A;&#x90FD;&#x786E;&#x8BA4;&#x901A;&#x8FC7;)</p>
+</blockquote>
+<p>1.&#x67E5;&#x770B;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#x7248;&#x672C;&#xFF08;&#x5FC5;&#x987B;&#x662F;3.10&#x4EE5;&#x4E0A;&#xFF09;</p>
+<blockquote>
+<p>uname -r</p>
+</blockquote>
+<p>2.&#x5B89;&#x88C5;&#x6240;&#x9700;&#x7684;&#x4F9D;&#x8D56;&#x8F6F;&#x4EF6;&#x5305;</p>
+<blockquote>
+<p>yum install -y yum-utils device-mapper-persistent-data lvm2</p>
+</blockquote>
+<p> yum-util &#x63D0;&#x4F9B;yum-config-manager&#x529F;&#x80FD;&#xFF0C;&#x53E6;&#x5916;&#x4E24;&#x4E2A;&#x662F;devicemapper&#x9A71;&#x52A8;&#x4F9D;&#x8D56;&#x7684;
+<img src="https://img-blog.csdnimg.cn/2018112108522160." alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;">
+&#x7531;&#x4E8E;&#x5DF2;&#x7ECF;&#x66F4;&#x65B0;&#x8FC7;&#x5185;&#x6838;&#x548C;yum&#x5E93;&#xFF0C;&#x6B64;&#x5904;&#x5DF2;&#x7ECF;&#x5B89;&#x88C5;&#x8FC7;&#x6700;&#x65B0;&#x7248;&#x672C;&#xFF0C;&#x8BE5;&#x64CD;&#x4F5C;&#x662F;&#x4E3A;&#x4E86;&#x6D4B;&#x8BD5;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x6210;&#x529F;&#x5B89;&#x88C5;&#x3002;
+3.&#x8BBE;&#x7F6E;yum&#x6E90;</p>
+<blockquote>
+<p>yum-config-manager --add-repo <a href="https://download.docker.com/linux/centos/docker-ce.repo" target="_blank">https://download.docker.com/linux/centos/docker-ce.repo</a></p>
+</blockquote>
+<p>&#x4F7F;&#x7528;&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#x8BBE;&#x7F6E;&#x7A33;&#x5B9A;&#x5B58;&#x50A8;&#x5E93;&#x3002; &#x60A8;&#x59CB;&#x7EC8;&#x9700;&#x8981;&#x7A33;&#x5B9A;&#x7684;&#x5B58;&#x50A8;&#x5E93;&#xFF0C;&#x5373;&#x4F7F;&#x60A8;&#x4E5F;&#x60F3;&#x4ECE;&#x8FB9;&#x7F18;&#x6216;&#x6D4B;&#x8BD5;&#x5B58;&#x50A8;&#x5E93;&#x5B89;&#x88C5;&#x6784;&#x5EFA;&#x3002;</p>
+<h2 id="3&#x5B89;&#x88C5;&#x542F;&#x52A8;docker">3.&#x5B89;&#x88C5;&amp;&#x542F;&#x52A8;docker</h2>
+<p>1.&#x5B89;&#x88C5;docker</p>
+<blockquote>
+<p>yum install -y docker</p>
+</blockquote>
+<p>2.&#x542F;&#x52A8;&#x5E76;&#x8BBE;&#x7F6E;&#x4E3A;&#x5F00;&#x673A;&#x542F;&#x52A8;docker</p>
+<blockquote>
+<p>systemctl start docker
+systemctl enable docker</p>
+</blockquote>
+<p>3.&#x67E5;&#x770B;docker&#x7248;&#x672C;&#xFF0C;&#x786E;&#x8BA4;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;</p>
+<blockquote>
+<p>docker --version</p>
+</blockquote>
+<p>4.&#x767B;&#x5F55;&#x963F;&#x91CC;&#x4E91;-&#x300B;&#x4EA7;&#x54C1;&#x4E0E;&#x670D;&#x52A1;-&#x300B;&#x5BB9;&#x5668;&#x955C;&#x50CF;&#x670D;&#x52A1;-&#x300B;&#x955C;&#x50CF;&#x52A0;&#x901F;&#x5668;
+<img src="https://img-blog.csdnimg.cn/20181121092533992.?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTA1OTEw,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;">
+&#x6309;&#x9ED1;&#x8272;&#x90E8;&#x5206;&#x914D;&#x7F6E;&#x6216;&#x8005;</p>
+<p>5.&#x914D;&#x7F6E;docker&#x955C;&#x50CF;&#x52A0;&#x901F;&#x5668;
+<img src="https://img-blog.csdnimg.cn/20181121093205146." alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<p>6.&#x505C;&#x6B62;docker</p>
+<blockquote>
+<p>systemctl stop docker</p>
+</blockquote>
+<h2 id="4&#x5E38;&#x7528;&#x64CD;&#x4F5C;">4.&#x5E38;&#x7528;&#x64CD;&#x4F5C;</h2>
+<p>1&#xFF09;&#x955C;&#x50CF;&#x64CD;&#x4F5C;</p>
+<table>
+<thead>
+<tr>
+<th>&#x64CD;&#x4F5C;</th>
+<th>&#x547D;&#x4EE4;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x68C0;&#x7D22;</td>
+<td>docker search &#x5173;&#x952E;&#x5B57;</td>
+<td>&#x53BB;docker hub&#x4E0A;&#x68C0;&#x7D22;&#x955C;&#x50CF;&#xFF0C;&#x5982;&#x955C;&#x50CF;&#x7684;tag</td>
+</tr>
+<tr>
+<td>&#x62C9;&#x53D6;</td>
+<td>docker pull &#x955C;&#x50CF;&#x540D;:tag</td>
+<td>:tag&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;tag&#x8868;&#x793A;&#x6807;&#x7B7E;&#xFF0C;&#x591A;&#x4E3A;&#x8F6F;&#x4EF6;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;latest</td>
+</tr>
+<tr>
+<td>&#x5217;&#x8868;</td>
+<td>docker images</td>
+<td>&#x67E5;&#x770B;&#x6240;&#x6709;&#x672C;&#x5730;&#x955C;&#x50CF;</td>
+</tr>
+<tr>
+<td>&#x5220;&#x9664;</td>
+<td>docker rmi image-id</td>
+<td>&#x5220;&#x9664;&#x6307;&#x5B9A;&#x7684;&#x672C;&#x5730;&#x955C;&#x50CF;</td>
+</tr>
+</tbody>
+</table>
+<p>2&#xFF09;&#x5BB9;&#x5668;&#x64CD;&#x4F5C;</p>
+<table>
+<thead>
+<tr>
+<th>&#x64CD;&#x4F5C;</th>
+<th>&#x547D;&#x4EE4;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x8FD0;&#x884C;</td>
+<td>docker run --name container-name -d image-name</td>
+<td>--name:&#x81EA;&#x5B9A;&#x4E49;&#x5BB9;&#x5668;&#x540D;<br>-d:&#x540E;&#x53F0;&#x8FD0;&#x884C;<br>image-name:&#x6307;&#x5B9A;&#x955C;&#x50CF;&#x6A21;&#x677F;</td>
+</tr>
+<tr>
+<td>&#x5217;&#x8868;</td>
+<td>docker ps&#xFF08;&#x67E5;&#x770B;&#x8FD0;&#x884C;&#x4E2D;&#x7684;&#x5BB9;&#x5668;&#xFF09;</td>
+<td>&#x52A0;&#x4E0A;-a&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x6240;&#x6709;&#x5BB9;&#x5668;</td>
+</tr>
+<tr>
+<td>&#x505C;&#x6B62;</td>
+<td>docker stop container-name/container-id</td>
+<td>&#x505C;&#x6B62;&#x5F53;&#x524D;&#x4F60;&#x8FD0;&#x884C;&#x7684;&#x5BB9;&#x5668;</td>
+</tr>
+<tr>
+<td>&#x542F;&#x52A8;</td>
+<td>docker start container-name/container-id</td>
+<td>&#x542F;&#x52A8;&#x5BB9;&#x5668;</td>
+</tr>
+<tr>
+<td>&#x5220;&#x9664;</td>
+<td>ddocker rm container-id</td>
+<td>&#x5220;&#x9664;&#x6307;&#x5B9A;&#x5BB9;&#x5668;</td>
+</tr>
+<tr>
+<td>&#x7AEF;&#x53E3;&#x6620;&#x5C04;</td>
+<td>-p 6379:6379<br>eg:docker run -d -p6379:6379 --name myredis docker:io/redis</td>
+<td>-p:&#x4E3B;&#x673A;&#x7AEF;&#x53E3;&#xFF08;&#x6620;&#x5C04;&#x5230;&#xFF09;&#x5BB9;&#x5668;&#x5185;&#x90E8;&#x7684;&#x7AEF;&#x53E3;</td>
+</tr>
+<tr>
+<td>&#x5BB9;&#x5668;&#x65E5;&#x5FD7;</td>
+<td>docker logs container-name/container-id</td>
+<td></td>
+</tr>
+<tr>
+<td>&#x5728;&#x8FD0;&#x884C;&#x7684;&#x5BB9;&#x5668;&#x4E2D;&#x6267;&#x884C;&#x547D;&#x4EE4;</td>
+<td>docker exec -it containerId /bin/bash<br>&#x8FDB;&#x5165;&#x540E;&#x67E5;&#x770B;&#x7528;cat<br>doker exec containerId &#x547D;&#x4EE4;&#xFF08;eg:java -version&#xFF09;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x7AEF;&#x53E3;&#x6D4B;&#x8BD5;&#x65F6;&#x53EF;&#x80FD;&#x7531;&#x4E8E;&#x9632;&#x706B;&#x5899;&#x95EE;&#x9898;&#x4E0D;&#x80FD;&#x8BBF;&#x95EE;&#xFF01;&#xFF01;&#xFF01;</p>
+<p>&#xFF08;&#x672C;&#x4EBA;&#x5728;mysql&#x548C;springboot&#x4E24;&#x4E2A;&#x5BB9;&#x5668;&#x901A;&#x4FE1;&#x65F6;&#x7531;&#x4E8E;&#x9632;&#x706B;&#x5899;&#x95EE;&#x9898;&#xFF0C;&#x8BBF;&#x95EE;&#x4E0D;&#x4E86;&#xFF09;</p>
+<p>&#x62A5;&#x5982;&#x4E0B;&#x9519;&#x8BEF;&#xFF1A;</p>
+<pre><code class="lang-java">Caused by: java.net.NoRouteToHostException: <span class="hljs-function">No route to <span class="hljs-title">host</span> <span class="hljs-params">(Host unreachable)</span>
+</span></code></pre>
+<blockquote>
+<p>service firewalld status &#x67E5;&#x770B;&#x9632;&#x706B;&#x5899;&#x72B6;&#x6001;</p>
+<p>service firewalld stop &#x5173;&#x95ED;&#x9632;&#x706B;&#x5899;</p>
+</blockquote>
+<p>3&#xFF09;&#x8F85;&#x52A9;&#x547D;&#x4EE4;</p>
+<p><code>docker --help</code></p>
+<p><code>docker -version</code></p>
+<p><code>docker info</code></p>
+<p>&#x67E5;&#x770B;&#x5BB9;&#x5668;&#x65E5;&#x5FD7;&#xFF0C;mysql&#x5BB9;&#x5668;&#x521B;&#x5EFA;&#x65F6;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x521D;&#x59CB;&#x503C;&#x5BC6;&#x7801;&#x4F1A;&#x62A5;&#x5982;&#x4E0B;&#x9519;&#xFF0C;&#x6B64;&#x65F6;&#x67E5;&#x770B;&#x5BB9;&#x5668;&#x65E5;&#x5FD7;&#x53EF;&#x4EE5;&#x5206;&#x6790;&#x5F97;&#x5230;</p>
+<pre><code class="lang-:aland_islands:">[root@localhost local]# docker logs 84c3f5077053
+error: database is uninitialized and password option is not specified
+  You need to specify one of MYSQL_ROOT_PASSWORD, MYSQL_ALLOW_EMPTY_PASSWORD and MYSQL_RANDOM_ROOT_PASSWORD
+</code></pre>
+<p><code>docker logs containerId</code></p>
+<pre><code class="lang-shell">&#x5B89;&#x88C5;jenkins&#x65F6;&#xFF0C;&#x7531;&#x4E8E;&#x6302;&#x8F7D;&#x76EE;&#x5F55;&#x5377;&#x7528;&#x6237;&#x4E3A;root&#xFF0C;&#x800C;jenkins&#x7528;&#x6237;&#x4E3A;jenkins&#x4F1A;&#x51FA;&#x73B0;&#x5982;&#x4E0B;&#x9519;&#x8BEF;
+Can not write to /var/jenkins_home/copy_reference_file.log. Wrong volume permissions?
+touch: cannot touch &#x2018;/var/jenkins_home/copy_reference_file.log&#x2019;: Permission denied
+
+&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;sudo chown -R 1000 &#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;
+</code></pre>
+<h2 id="5&#x5728;docker&#x5BB9;&#x5668;&#x4E0A;&#x5B89;&#x88C5;&#x7B49;&#x7B49;">5.&#x5728;docker&#x5BB9;&#x5668;&#x4E0A;&#x5B89;&#x88C5;<strong><strong><strong>*</strong></strong></strong>&#x7B49;&#x7B49;</h2>
+<p><strong>&#x4E0B;&#x56FE;ribbitmq&#x9519;&#x8BEF;&#xFF0C;&#x5E94;&#x8BE5;&#x4E3A;rabbitmq&#xFF01;&#xFF01;&#xFF01;</strong>
+<img src="https://img-blog.csdnimg.cn/20181121112218785." alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;">
+&#x77E5;&#x8BC6;&#x70B9;&#x603B;&#x7ED3;&#xFF1A;
+<strong>&#x955C;&#x50CF;&#x548C;&#x5BB9;&#x5668;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x5C31;&#x50CF;&#x7C7B;&#x548C;&#x5BF9;&#x8C61;&#x7684;&#x5173;&#x7CFB;&#x7C7B;&#x4F3C;</strong></p>
+<p>1.&#x67E5;&#x627E;</p>
+<blockquote>
+<p>docker search tomcat</p>
+</blockquote>
+<p>2.&#x4ECE;&#x955C;&#x50CF;&#x4ED3;&#x5E93;&#x4E2D;&#x62C9;&#x53D6;</p>
+<blockquote>
+<p>docker pull tomcat:8</p>
+</blockquote>
+<p>3.&#x67E5;&#x770B;&#x5DF2;&#x7ECF;&#x83B7;&#x53D6;&#x7684;&#x955C;&#x50CF;</p>
+<blockquote>
+<p>docker images</p>
+</blockquote>
+<p>4.&#x5217;&#x51FA;&#x6240;&#x6709;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x5BB9;&#x5668;</p>
+<blockquote>
+<p>docker ps -a</p>
+</blockquote>
+<p>-a :&#x663E;&#x793A;&#x6240;&#x6709;&#x7684;&#x5BB9;&#x5668;&#xFF0C;&#x5305;&#x62EC;&#x672A;&#x8FD0;&#x884C;&#x7684;&#x3002;</p>
+<p>5.&#x5220;&#x9664;&#x5BB9;&#x5668;</p>
+<blockquote>
+<p>docker rm containerId</p>
+</blockquote>
+<p>6.&#x5220;&#x9664;&#x955C;&#x50CF;</p>
+<blockquote>
+<p>docker rmi imageId</p>
+</blockquote>
+<p>7.&#x521B;&#x5EFA;&#x5E76;&#x8FD0;&#x884C;&#x5BB9;&#x5668;
+tomcat8:</p>
+<blockquote>
+<p>docker run -d --name tomcat1 -p 9000:8080 78b258e36eed</p>
+</blockquote>
+<p>-d :&#x540E;&#x53F0;&#x8FD0;&#x884C;&#x5BB9;&#x5668;
+--name:&#x5BB9;&#x5668;&#x540D;&#x5B57;
+9000:&#x901A;&#x77E5;&#x670D;&#x52A1;&#x5668;&#xFF08;&#x865A;&#x62DF;&#x673A;&#xFF09;&#x7684;&#x7AEF;&#x53E3;&#xFF0C;&#x5BF9;&#x5916;&#x66B4;&#x9732;
+8080:tomcat&#x5BF9;&#x5916;&#x66B4;&#x9732;&#x7684;&#x7AEF;&#x53E3;
+78b258e36eed:tomcat&#x955C;&#x50CF;id</p>
+<p>mysql:</p>
+<blockquote>
+<p>docker run -d --name mysql1 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=abc123 a876cc5d29e4  </p>
+</blockquote>
+<p>-e:&#x73AF;&#x5883;&#x53D8;&#x91CF;
+MYSQL_ROOT_PASSWORD=abc123:&#x5BC6;&#x7801;
+a876cc5d29e4 :&#x955C;&#x50CF;id</p>
+<p>8.&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5DF2;&#x7ECF;&#x88AB;&#x505C;&#x6B62;&#x7684;&#x5BB9;&#x5668;</p>
+<blockquote>
+<p>docker start containerId</p>
+</blockquote>
+<h2 id="6&#x5BB9;&#x5668;&#x6570;&#x636E;&#x5377;">6.&#x5BB9;&#x5668;&#x6570;&#x636E;&#x5377;</h2>
+<p><strong>&#x80FD;&#x5E72;&#x561B;</strong>&#xFF1F;</p>
+<blockquote>
+<p>&#x5BB9;&#x5668;&#x7684;&#x6301;&#x4E45;&#x5316;&#x548C;&#x5BB9;&#x5668;&#x4E4B;&#x95F4;&#x7EE7;&#x627F;+&#x5171;&#x4EAB;&#x6570;&#x636E;</p>
+</blockquote>
+<p><strong>&#x6570;&#x636E;&#x5377;</strong></p>
+<p>&#x5982;&#x4F55;&#x6DFB;&#x52A0;&#xFF1F;</p>
+<p>1.&#x76F4;&#x63A5;-v&#x547D;&#x4EE4;&#x6DFB;&#x52A0;</p>
+<blockquote>
+<p>docker run -it -v /&#x5BBF;&#x4E3B;&#x673A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x76EE;&#x5F55;:/&#x5BB9;&#x5668;&#x5185;&#x76EE;&#x5F55; &#x955C;&#x50CF;&#x540D;</p>
+</blockquote>
+<p>&#x53EA;&#x8BFB;&#xFF1A;</p>
+<blockquote>
+<p>docker run -it -v /&#x5BBF;&#x4E3B;&#x673A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x76EE;&#x5F55;:/&#x5BB9;&#x5668;&#x5185;&#x76EE;&#x5F55;:ro &#x955C;&#x50CF;&#x540D;     </p>
+</blockquote>
+<p>&#x548C;redis&#x7684;rdp&#x548C;aop&#x7C7B;&#x4F3C;&#xFF0C;&#x4E3B;&#x673A;&#x4FEE;&#x6539;&#x540E;&#xFF0C;&#x5BB9;&#x5668;&#x4E5F;&#x4F1A;&#x540C;&#x6B65;</p>
+<p>&#x53EF;&#x4EE5;&#x7528;docker inspect&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x662F;&#x5426;&#x6302;&#x8F7D;&#x6210;&#x529F;</p>
+<p>2.&#x4F7F;&#x7528;Dockerfile</p>
+<p>&#x955C;&#x50CF;&#x7684;&#x811A;&#x672C;&#x6587;&#x4EF6;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;linux&#x7684;shell&#x7F16;&#x7A0B;</p>
+<blockquote>
+<p>docker build -f &#x7EDD;&#x5BF9;&#x8DEF;&#x5F84; -t &#x955C;&#x50CF;&#x540D;&#x79F0; .</p>
+</blockquote>
+<p><strong>&#x6570;&#x636E;&#x5377;&#x5BB9;&#x5668;</strong></p>
+<p>&#x62D3;&#x5C55;&#xFF1A;&#x5B50;&#x5BB9;&#x5668;&#x7EE7;&#x627F;&#x7236;&#x5BB9;&#x5668;&#xFF0C;&#x6570;&#x636E;&#x5171;&#x4EAB;</p>
+<p>&#x5BB9;&#x5668;&#x4E4B;&#x95F4;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x7684;&#x4F20;&#x9012;&#xFF0C;&#x6570;&#x636E;&#x5377;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E00;&#x76F4;&#x6301;&#x7EED;&#x5230;&#x6CA1;&#x6709;&#x5BB9;&#x5668;&#x4F7F;&#x7528;&#x4ED6;&#x4E3A;&#x6B62;</p>
+<p>&#x547D;&#x540D;&#x7684;&#x5BB9;&#x5668;&#x6302;&#x8F7D;&#x6570;&#x636E;&#x5377;&#xFF0C;&#x5176;&#x4ED6;&#x5BB9;&#x5668;&#x901A;&#x8FC7;&#x6302;&#x8F7D;&#x8FD9;&#x4E2A;&#xFF08;&#x7236;&#x5BB9;&#x5668;&#xFF09;&#x5B9E;&#x73B0;&#x6570;&#x636E;&#x5171;&#x4EAB;&#xFF0C;&#x6302;&#x8F7D;&#x6570;&#x636E;&#x5377;&#x7684;&#x5BB9;&#x5668;&#xFF0C;&#x79F0;&#x4E4B;&#x4E3A;&#x6570;&#x636E;&#x5377;&#x5BB9;&#x5668;</p>
+<blockquote>
+<p>docker run -it --name dc02 --volumes-from zzyy/centos</p>
+</blockquote>
+<h2 id="7&#x6784;&#x5EFA;&#x955C;&#x50CF;">7.&#x6784;&#x5EFA;&#x955C;&#x50CF;</h2>
+<p>1.&#x901A;&#x8FC7;docker commit&#x547D;&#x4EE4;   &#x5BB9;&#x5668;&#x65B9;&#x5F0F;&#x6784;&#x5EFA;</p>
+<p>2.&#x901A;&#x8FC7;docker build&#x547D;&#x4EE4;        Dockerfile&#x6587;&#x4EF6;&#x65B9;&#x5F0F;&#x6784;&#x5EFA;</p>
+<p><strong>&#x5927;&#x81F4;&#x6D41;&#x7A0B;</strong></p>
+<ol>
+<li>docker&#x4ECE;&#x57FA;&#x7840;&#x955C;&#x50CF;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x5BB9;&#x5668;&#xFF08;FROM&#xFF09;</li>
+<li>&#x6267;&#x884C;&#x4E00;&#x6761;&#x6307;&#x4EE4;&#x5E76;&#x5BF9;&#x5BB9;&#x5668;&#x8FDB;&#x884C;&#x4FEE;&#x6539;</li>
+<li>&#x6267;&#x884C;&#x7C7B;&#x4F3C;docker commit&#x7684;&#x64CD;&#x4F5C;&#x63D0;&#x4EA4;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x955C;&#x50CF;&#x5C42;&#xFF08;ADD&#xFF09;</li>
+<li>docker&#x518D;&#x57FA;&#x4E8E;&#x521A;&#x63D0;&#x4EA4;&#x7684;&#x955C;&#x50CF;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x65B0;&#x5BB9;&#x5668;</li>
+<li>&#x6267;&#x884C;dockerfile&#x4E2D;&#x7684;&#x4E0B;&#x4E00;&#x6761;&#x6307;&#x4EE4;&#x76F4;&#x5230;&#x6240;&#x6709;&#x6307;&#x4EE4;&#x90FD;&#x6267;&#x884C;&#x5B8C;&#x6210;</li>
+</ol>
+<p>Dockerfileh&#x4FDD;&#x7559;&#x5B57;&#x6307;&#x4EE4;</p>
+<p>1&#xFF09;From&#xFF1A;&#x57FA;&#x7840;&#x955C;&#x50CF;&#xFF0C;&#x5F53;&#x524D;&#x65B0;&#x955C;&#x50CF;&#x662F;&#x57FA;&#x4E8E;&#x54EA;&#x4E2A;&#x955C;&#x50CF;&#x7684;</p>
+<blockquote>
+<p>From<image>:<tag>    </tag></image></p>
+<p>&#x5FC5;&#x987B;&#x662F;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x955C;&#x50CF;&#xFF08;&#x57FA;&#x7840;&#x955C;&#x50CF;&#xFF09;</p>
+<p>&#x5728;Dockerfile&#x4E2D;&#x5FC5;&#x987B;&#x662F;&#x7B2C;&#x4E00;&#x6761;&#x975E;&#x6CE8;&#x91CA;&#x7684;&#x6307;&#x4EE4;</p>
+</blockquote>
+<p>2&#xFF09;MAINTAINER&#xFF1A;&#x955C;&#x50CF;&#x7EF4;&#x62A4;&#x8005;&#x7684;&#x59D3;&#x540D;&#x548C;&#x90AE;&#x7BB1;&#x5730;&#x5740;</p>
+<p>3&#xFF09;RUN&#xFF1A;&#x5BB9;&#x5668;&#x6784;&#x5EFA;&#x65F6;&#x9700;&#x8981;&#x8FD0;&#x884C;&#x7684;&#x547D;&#x4EE4;</p>
+<p>4&#xFF09;EXPORT&#xFF1A;&#x5F53;&#x524D;&#x5BB9;&#x5668;&#x5BF9;&#x5916;&#x66B4;&#x9732;&#x51FA;&#x7684;&#x7AEF;&#x53E3;</p>
+<p>5&#xFF09;WORKDIR&#xFF1A;&#x6307;&#x5B9A;&#x5728;&#x521B;&#x5EFA;&#x5BB9;&#x5668;&#x540E;&#xFF0C;&#x7EC8;&#x7AEF;&#x9ED8;&#x8BA4;&#x767B;&#x9646;&#x7684;&#x8FDB;&#x6765;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#xFF0C;&#x4E00;&#x4E2A;&#x843D;&#x811A;&#x70B9;</p>
+<p>6&#xFF09;ENV&#xFF1A;&#x7528;&#x6765;&#x5728;&#x6784;&#x5EFA;&#x955C;&#x50CF;&#x8FC7;&#x7A0B;&#x4E2D;&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</p>
+<p>7&#xFF09;ADD&#xFF1A;&#x62F7;&#x8D1D;+&#x89E3;&#x538B;&#x7F29;</p>
+<p>8&#xFF09;COPY&#xFF1A;&#x62F7;&#x8D1D;</p>
+<p>9&#xFF09;VOLUME&#xFF1A;&#x5BB9;&#x5668;&#x6570;&#x636E;&#x5377;&#xFF0C;&#x7528;&#x4E8E;&#x6570;&#x636E;&#x4FDD;&#x5B58;&#x548C;&#x6301;&#x4E45;&#x5316;</p>
+<p>10&#xFF09;CMD&#xFF1A;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x5BB9;&#x5668;&#x542F;&#x52A8;&#x65F6;&#x8981;&#x8FD0;&#x884C;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x4E00;&#x4E2A;Dockerfile&#x4E2D;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;CMD&#x547D;&#x4EE4;&#xFF0C;&#x4F46;&#x53EA;&#x6709;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x4F1A;&#x751F;&#x6548;&#xFF0C;CMD&#x4F1A;&#x88AB;docker run&#x4E4B;&#x540E;&#x7684;&#x53C2;&#x6570;&#x66FF;&#x6362;</p>
+<p>11&#xFF09;ENTRYPOINT&#xFF1A;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x5BB9;&#x5668;&#x542F;&#x52A8;&#x65F6;&#x8981;&#x8FD0;&#x884C;&#x7684;&#x547D;&#x4EE4;</p>
+<p>12&#xFF09;ONBUILD&#xFF1A;&#x5F53;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x88AB;&#x7EE7;&#x627F;&#x7684;Dokcerfile&#x65F6;&#x8FD0;&#x884C;&#x547D;&#x4EE4;&#xFF0C;&#x7236;&#x955C;&#x50CF;&#x5728;&#x88AB;&#x5B50;&#x7EE7;&#x627F;&#x540E;&#x7236;&#x955C;&#x50CF;&#x7684;onbuild&#x88AB;&#x89E6;&#x53D1;</p>
+<p>&#x65B0;&#x77E5;&#x8BC6;&#x70B9;&#xFF1A;kubernetes</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"docker常用命令","tags":["Docker"],"categories":["Docker"],"level":"1.5.1","depth":2,"next":{"title":"K8S常用命令","level":"1.5.2","depth":2,"ref":"","articles":[]},"previous":{"title":"K8S集群常用命令","level":"1.5","depth":1,"ref":"","articles":[{"title":"docker常用命令","level":"1.5.1","depth":2,"path":"Docker常用命令.md","ref":"Docker常用命令.md","articles":[]},{"title":"K8S常用命令","level":"1.5.2","depth":2,"ref":"","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Docker常用命令.md","mtime":"2019-01-31T07:06:01.041Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-15T07:28:44.399Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
